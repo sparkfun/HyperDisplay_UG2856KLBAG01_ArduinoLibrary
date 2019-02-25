@@ -1,7 +1,7 @@
-HyperDisplay KWH018ST01 4WSPI Arduino Library
+SparkFun HyperDisplay Transparent Grahical OLED Library
 ========================================
 
-This is an extension for the [HyperDisplay](https://github.com/sparkfun/SparkFun_HyperDisplay) library that is fully configured for the KWH018ST01 module used on several SparkFun products. 
+This is an extension for the [HyperDisplay](https://github.com/sparkfun/SparkFun_HyperDisplay) library that is fully configured for the UG2856KLBAG01 module used on the SparkFun Transparent Graphical OLED
 
 
 Repository Contents
@@ -19,7 +19,8 @@ Documentation
 
 Products that use this Library 
 ---------------------------------
-* [LCD-15143](https://www.sparkfun.com/products/15143)
+
+* [Transparent Graphical OLED](https://www.sparkfun.com/products/15173)
 
 Version History
 ---------------
