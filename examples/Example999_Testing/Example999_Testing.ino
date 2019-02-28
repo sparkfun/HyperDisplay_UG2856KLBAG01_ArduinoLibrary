@@ -35,38 +35,10 @@ void setup() {
   Wire.setClock(400000);
 #endif /* USSE_SPI */
 
-  myTOLED.line(10, 10, 350, 20, 1, (color_t)&color); 
-
-  myTOLED.rectangleSet(15,15, 45, 38, true);
-  myTOLED.rectangleClear(20,20, 40, 33, true);
-
   
-
-  myTOLED.circleSet(100, 32, 28, true);
-
-  delay(1000);
-  
-  myTOLED.circleClear(88, 28, 17, true);
-  
-  
-  for(uint8_t indi = 255; indi > 1; indi--)
-  {
-    myTOLED.setContrastControl(indi);
-    delay(5);
-  }
-  for(uint8_t indi = 0; indi < 254; indi++)
-  {
-    myTOLED.setContrastControl(indi);
-    delay(5);
-  }
 }
 
 void loop() {
 
-  myTOLED.pixelSet(126,2);
-  delay(1000);
-
-  myTOLED.pixelClear(126,2);
-  delay(1000);
 
 }
