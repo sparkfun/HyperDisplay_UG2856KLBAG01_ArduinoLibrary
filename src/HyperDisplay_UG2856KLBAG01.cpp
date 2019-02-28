@@ -105,10 +105,11 @@ void UG2856KLBAG01_I2C::clearDisplay( void )
 	setWindowDefaults(&window);
 
 	// Make a local 'black' color 
-	uint8_t temp_buff[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};				// This buffer is long enough to represent '0' no matter what color mode is selected
+	SSD1309_Bite_t blk;
+	blk.bite = 0x00;
 	
 	// Fill the temporary window with black
-	fillWindow((color_t)temp_buff);												// Pass the address of the buffer b/c we know it will be safe no matter what SSD1309 color mode is used
+	fillWindow((color_t)&blk);		
 
 	// Restore the previous window
 	pCurrentWindow = ptempWind;
@@ -116,27 +117,30 @@ void UG2856KLBAG01_I2C::clearDisplay( void )
 
 void UG2856KLBAG01_I2C::setWindowDefaults(wind_info_t * pwindow)
 {
-	// // Fills out the default window structure with more or less reasonable defaults
-	// pwindow->xMin = UG6464TDDBG01_START_COL;
-	// pwindow->yMin = UG6464TDDBG01_START_ROW;
-	// pwindow->xMax = UG6464TDDBG01_STOP_COL;
-	// pwindow->yMax = UG6464TDDBG01_STOP_ROW;
-	// pwindow->cursorX = 0;							// cursor values are in window coordinates
-	// pwindow->cursorY = 0;
-	// pwindow->xReset = 0;
-	// pwindow->yReset = 0;
+	// Fills out the default window structure with more or less reasonable defaults
+	pwindow->xMin = UG2856KLBAG01_START_COL;
+	pwindow->yMin = UG2856KLBAG01_START_ROW;
+	pwindow->xMax = UG2856KLBAG01_STOP_COL;
+	pwindow->yMax = UG2856KLBAG01_STOP_ROW;
+	pwindow->cursorX = 0;							// cursor values are in window coordinates
+	pwindow->cursorY = 0;
+	pwindow->xReset = 0;
+	pwindow->yReset = 0;
 	
-	// pwindow->lastCharacter.data = NULL;
-	// pwindow->lastCharacter.xLoc = NULL;
-	// pwindow->lastCharacter.yLoc = NULL;
-	// pwindow->lastCharacter.xDim = 0;
-	// pwindow->lastCharacter.yDim = 0;
-	// pwindow->lastCharacter.numPixels = 0;
-	// pwindow->lastCharacter.show = false;
-	// pwindow->lastCharacter.causesNewline = false;
+	pwindow->lastCharacter.data = NULL;
+	pwindow->lastCharacter.xLoc = NULL;
+	pwindow->lastCharacter.yLoc = NULL;
+	pwindow->lastCharacter.xDim = 0;
+	pwindow->lastCharacter.yDim = 0;
+	pwindow->lastCharacter.numPixels = 0;
+	pwindow->lastCharacter.show = false;
+	pwindow->lastCharacter.causesNewline = false;
 	
-	// pwindow->data = NULL;				// No window data yet
-	// setCurrentWindowColorSequence(NULL, 1, 0);	// Setup the default color (Which is NULL, so that you know it is not set yet)
+	pwindow->bufferMode = false;			// Start out in direct mode
+	pwindow->data = NULL;				// No window data yet
+	pwindow->numPixels = 0;
+	pwindow->dynamic = false;
+	setWindowColorSequence(pwindow, NULL, 1, 0);	// Setup the default color (Which is NULL, so that you know it is not set yet)
 }
 
 
@@ -266,10 +270,11 @@ void UG2856KLBAG01_SPI::clearDisplay( void )
 	setWindowDefaults(&window);
 
 	// Make a local 'black' color 
-	uint8_t temp_buff[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};				// This buffer is long enough to represent '0' no matter what color mode is selected
+	SSD1309_Bite_t blk;
+	blk.bite = 0x00;
 	
 	// Fill the temporary window with black
-	fillWindow((color_t)temp_buff);												// Pass the address of the buffer b/c we know it will be safe no matter what SSD1309 color mode is used
+	fillWindow((color_t)&blk);		
 
 	// Restore the previous window
 	pCurrentWindow = ptempWind;
@@ -277,25 +282,28 @@ void UG2856KLBAG01_SPI::clearDisplay( void )
 
 void UG2856KLBAG01_SPI::setWindowDefaults(wind_info_t * pwindow)
 {
-	// // Fills out the default window structure with more or less reasonable defaults
-	// pwindow->xMin = UG6464TDDBG01_START_COL;
-	// pwindow->yMin = UG6464TDDBG01_START_ROW;
-	// pwindow->xMax = UG6464TDDBG01_STOP_COL;
-	// pwindow->yMax = UG6464TDDBG01_STOP_ROW;
-	// pwindow->cursorX = 0;							// cursor values are in window coordinates
-	// pwindow->cursorY = 0;
-	// pwindow->xReset = 0;
-	// pwindow->yReset = 0;
+	// Fills out the default window structure with more or less reasonable defaults
+	pwindow->xMin = UG2856KLBAG01_START_COL;
+	pwindow->yMin = UG2856KLBAG01_START_ROW;
+	pwindow->xMax = UG2856KLBAG01_STOP_COL;
+	pwindow->yMax = UG2856KLBAG01_STOP_ROW;
+	pwindow->cursorX = 0;							// cursor values are in window coordinates
+	pwindow->cursorY = 0;
+	pwindow->xReset = 0;
+	pwindow->yReset = 0;
 	
-	// pwindow->lastCharacter.data = NULL;
-	// pwindow->lastCharacter.xLoc = NULL;
-	// pwindow->lastCharacter.yLoc = NULL;
-	// pwindow->lastCharacter.xDim = 0;
-	// pwindow->lastCharacter.yDim = 0;
-	// pwindow->lastCharacter.numPixels = 0;
-	// pwindow->lastCharacter.show = false;
-	// pwindow->lastCharacter.causesNewline = false;
+	pwindow->lastCharacter.data = NULL;
+	pwindow->lastCharacter.xLoc = NULL;
+	pwindow->lastCharacter.yLoc = NULL;
+	pwindow->lastCharacter.xDim = 0;
+	pwindow->lastCharacter.yDim = 0;
+	pwindow->lastCharacter.numPixels = 0;
+	pwindow->lastCharacter.show = false;
+	pwindow->lastCharacter.causesNewline = false;
 	
-	// pwindow->data = NULL;				// No window data yet
-	// setCurrentWindowColorSequence(NULL, 1, 0);	// Setup the default color (Which is NULL, so that you know it is not set yet)
+	pwindow->bufferMode = false;			// Start out in direct mode
+	pwindow->data = NULL;				// No window data yet
+	pwindow->numPixels = 0;
+	pwindow->dynamic = false;
+	setWindowColorSequence(pwindow, NULL, 1, 0);	// Setup the default color (Which is NULL, so that you know it is not set yet)
 }
