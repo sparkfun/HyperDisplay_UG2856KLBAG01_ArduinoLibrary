@@ -47,7 +47,7 @@
 #define CS_PIN 4            // Used only if USE_SPI == 1
 #define DC_PIN 5            // Used only if USE_SPI == 1
 
-#define USE_SPI 1           // Choose your interface. 0 = I2C, 1 = SPI
+#define USE_SPI 0           // Choose your interface. 0 = I2C, 1 = SPI
 
 // END USER SETUP
 
