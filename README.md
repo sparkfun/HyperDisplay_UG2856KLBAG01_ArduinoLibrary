@@ -15,6 +15,7 @@ Repository Contents
 Documentation
 --------------
 
+* **[Transparent Graphical OLED Hookup Guide](https://learn.sparkfun.com/tutorials/transparent-graphical-oled-breakout-hookup-guide)** - Basic hookup guide for the Transparent Graphical OLED.
 * **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.
 
 Products that use this Library 
