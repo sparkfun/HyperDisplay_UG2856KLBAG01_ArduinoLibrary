@@ -25,6 +25,7 @@ Products that use this Library
 
 Version History
 ---------------
+
 * [V1.0.0](https://github.com/sparkfun/HyperDisplay_UG2856KLBAG01_ArduinoLibrary/releases/tag/v1.0.0) -- Initial release
 
 License Information
