@@ -1,6 +1,11 @@
 /*
   Make a 10-layer deep volumetric display witht he transparent graphical oled
   
+  Big credit goes to M Rule at http://crawlingrobotfortress.blogspot.com for writing the 3D vector code 
+  as well as the STL to header Python code. 
+  
+  Check out the blog post here: http://crawlingrobotfortress.blogspot.com/2015/12/better-3d-graphics-engine-on-arduino.html
+  
   By: Owen Lyke
   SparkFun Electronics
   Date: March 1, 2019
