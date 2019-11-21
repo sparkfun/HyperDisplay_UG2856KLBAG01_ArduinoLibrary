@@ -23,7 +23,7 @@ SSD1309_Status_t UG2856KLBAG01_I2C::begin(TwoWire &wirePort, bool sa0Val, uint8_
 	if(_sa0 != SSD1309_ARD_UNUSED_PIN){ pinMode(_sa0, OUTPUT); }
 
 	// Set pins to default positions
-	if(_sa0 != SSD1309_ARD_UNUSED_PIN){ digitalWrite(_sa0, _sa0val); }
+	if(_sa0 != SSD1309_ARD_UNUSED_PIN){ digitalWrite(_sa0, (uint8_t)_sa0val); }
 
 	// _i2c->begin(); // Moved into user's sketch
 
