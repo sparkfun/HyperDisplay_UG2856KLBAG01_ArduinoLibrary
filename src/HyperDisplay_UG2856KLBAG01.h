@@ -61,7 +61,6 @@ public:
 //				UG2856KLBAG01 SPI Display Class   		  //
 ////////////////////////////////////////////////////////////
 
-#define UG2856KLBAG01_SPI_FREQ_MAX 	1000000
 #define UG2856KLBAG01_SPI_MODE 		SPI_MODE3
 #define UG2856KLBAG01_SPI_ORDER		MSBFIRST
 
