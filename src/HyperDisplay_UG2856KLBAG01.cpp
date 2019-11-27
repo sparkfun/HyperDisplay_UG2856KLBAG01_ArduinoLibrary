@@ -137,10 +137,10 @@ void UG2856KLBAG01_I2C::setWindowDefaults(wind_info_t * pwindow)
 	pwindow->lastCharacter.causesNewline = false;
 	
 	pwindow->bufferMode = false;			// Start out in direct mode
-	pwindow->data = NULL;				// No window data yet
+	pwindow->data = NULL;							// No window data yet
 	pwindow->numPixels = 0;
 	pwindow->dynamic = false;
-	setWindowColorSequence(pwindow, NULL, 1, 0);	// Setup the default color (Which is NULL, so that you know it is not set yet)
+	setWindowColorSet(pwindow);				// Set the default window color to 'Set' pixels
 }
 
 
