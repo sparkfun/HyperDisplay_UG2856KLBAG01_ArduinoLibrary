@@ -4,6 +4,11 @@ SparkFun HyperDisplay Transparent Graphical OLED Library
 This is an extension for the [HyperDisplay](https://github.com/sparkfun/SparkFun_HyperDisplay) library that is fully configured for the UG2856KLBAG01 module used on the SparkFun Transparent Graphical OLED
 
 
+Dependencies
+------------
+* [HyperDisplay SSD1309 Arduino Library](https://github.com/sparkfun/HyperDisplay_SSD1309_ArduinoLibrary)
+
+
 Repository Contents
 -------------------
 
