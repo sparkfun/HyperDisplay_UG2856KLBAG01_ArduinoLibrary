@@ -6,6 +6,7 @@ This is an extension for the [HyperDisplay](https://github.com/sparkfun/SparkFun
 
 Dependencies
 ------------
+* [HyperDisplay](https://github.com/sparkfun/SparkFun_HyperDisplay)
 * [HyperDisplay SSD1309 Arduino Library](https://github.com/sparkfun/HyperDisplay_SSD1309_ArduinoLibrary)
 
 
